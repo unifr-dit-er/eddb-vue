@@ -5,11 +5,11 @@ export const sorters: Sorter[] = [
   {
     type: SORTER_TYPE_LETTERS,
     title: "Numéro d'inventaire",
-    apiCriteria: "identifier"
+    apiCriteria: "NumeroInventaire"
   },
   {
     type: SORTER_TYPE_NUMBERS,
     title: "Date",
-    apiCriteria: "date_num_from"
+    apiCriteria: "DatationDebut"
   }
 ]

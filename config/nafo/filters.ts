@@ -6,54 +6,54 @@ export const filters: Filter[] = [
     type: FILTER_TYPE_TEXT,
     title: "Numéro d'inventaire",
     info: "ex: CPS 1015",
-    apiCriteria: "identifier"
+    apiCriteria: "NumeroInventaire"
   },
   {
     type: FILTER_TYPE_SELECT,
     title: "Entité",
-    apiCriteria: "entity"
+    apiCriteria: "Entite"
   },
   {
     type: FILTER_TYPE_RANGE,
     title: "Datation",
     info: "Utilisez des valeurs négatives pour les dates av. J.-C.",
-    apiCriteria: ["date_num_from", "date_num_to"]
+    apiCriteria: ["DatationDebut", "DatationFin"]
   },
   {
     type: FILTER_TYPE_SELECT,
     title: "Autorité émettrice",
-    apiCriteria: "authority"
+    apiCriteria: "Autorite"
   },
   {
     type: FILTER_TYPE_SELECT,
     title: "Portrait",
-    apiCriteria: "portrait"
+    apiCriteria: "Portrait"
   },
   {
     type: FILTER_TYPE_SELECT,
     title: "Atelier",
-    apiCriteria: "mint"
+    apiCriteria: "Atelier"
   },
   {
     type: FILTER_TYPE_SELECT,
     title: "Métal",
-    apiCriteria: "material"
+    apiCriteria: "Metal"
   },
   {
     type: FILTER_TYPE_SELECT,
     title: "Dénomination",
-    apiCriteria: "denomination"
+    apiCriteria: "Denomination"
   },
   {
     type: FILTER_TYPE_TEXT,
     title: "Référence bibliographique",
     info: "ex: Alexandria 47",
-    apiCriteria: "reference"
+    apiCriteria: "Reference"
   },
   {
     type: FILTER_TYPE_TEXT,
     title: "Mots-clés",
     info: "ex: sanctuaire",
-    apiCriteria: "comment"
+    apiCriteria: "Commentaire"
   }
 ]

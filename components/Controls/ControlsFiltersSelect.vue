@@ -16,7 +16,7 @@ function reset() {
   <div class="dropdown">
     <label :class="{ 'btn-primary': model.length }" tabindex="0" class="btn btn-sm m-1 normal-case">
       <IconListDetails />
-      {{ filter.title }}
+      {{ filter.title }} ({{ filter.apiCriteria }})
       <IconCaretDown />
     </label>
     <div tabindex="0" class="dropdown-content z-30 bg-base-100 card w-96 shadow-xl">

@@ -1,9 +1,12 @@
 <script setup lang="ts">
 defineProps<{
-  isHtml: boolean
   title: string
   content: string
 }>()
+
+const parseMarkdownLinks = (text: string) => {
+  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" rel="noopener noreferrer">$1</a>')
+}
 </script>
 
 <template>
@@ -12,8 +15,7 @@ defineProps<{
       {{ title }}
     </div>
     <div class="flex-1 md:p-4 print:p-4">
-      <div v-if="isHtml" v-html="content"></div>
-      <div v-else>{{ content }}</div>
+      <div class="whitespace-pre-line leading-tight" v-html="parseMarkdownLinks(content)"></div>
     </div>
   </div>
 </template>

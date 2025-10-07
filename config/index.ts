@@ -13,6 +13,7 @@ export interface AppConfig {
     url: string
     collectionName: string
     limit: number
+    token?: string
   }
   sorters: any[]
   filters: any[]

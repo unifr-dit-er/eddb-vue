@@ -1,45 +1,50 @@
 <script setup lang="ts">
-const apiConfig = useRuntimeConfig().public.api
+import type { PageInfo } from "@/types/pageInfo"
+
+const props = defineProps<{
+  pageInfo: PageInfo | null
+}>()
+
+const { api } = useRuntimeConfig().public
 const page = usePage()
-const filters = useFilters()
 
-const { data: total } = await useFetch<number>(`/api/${apiConfig.provider}/count`)
-const { data: filtered } = await useFetch<number>(`/api/${apiConfig.provider}/count`, { query: { filters } })
+const { data: total } = await useFetch<number>(`/api/${api.provider}/count`)
 
-const maxPage = computed(() => {
-  const calculatedPages = Math.ceil((filtered.value || 1) / apiConfig.limit)
-  return calculatedPages < 1 ? 1 : calculatedPages
-})
-const isFirstPage = computed(() => page.value === 1)
-const isLastPage = computed(() => page.value === maxPage.value)
+const maxPage = computed(() => Math.max(1, Math.ceil((props.pageInfo?.totalRows || 1) / api.limit)))
 
-// Prevent page outside range [1 - maxPage]
-watch(() => page.value, (newPage) => {
-  if (newPage < 1) {
-    page.value = 1
-  } else if (newPage > maxPage.value) {
-    page.value = maxPage.value
+const clampPage = (newPage: number) => Math.max(1, Math.min(newPage, maxPage.value))
+
+watch(page, (newPage) => {
+  const clamped = clampPage(newPage)
+  if (newPage !== clamped) {
+    page.value = clamped
   }
   scrollToTop()
 })
 
-// Check maxPage when filter applied
-watch(() => filtered.value, (newCounts) => {
-  if (page.value > maxPage.value) {
-    page.value = maxPage.value
-  }
+watch(() => props.pageInfo?.totalRows, () => {
+  page.value = clampPage(page.value)
 })
 </script>
 
 <template>
   <div class="flex items-center">
     <p class="mr-4 hidden lg:block">
-      <strong>{{ filtered }}</strong> résultats sur <strong>{{ total }}</strong> au total
+      <strong>{{ pageInfo?.totalRows }}</strong> résultats sur <strong>{{ total }}</strong> au total
     </p>
-    <button v-if="!isFirstPage" class="btn btn-sm ml-2" @click="page--"><IconPrev /></button>
+    <button v-if="!pageInfo?.isFirstPage" class="btn btn-sm ml-2" @click="page--">
+      <IconPrev />
+    </button>
     <div class="mx-2">Page</div>
-    <input v-model="page" @focus="($event.target as HTMLInputElement).select()" type="text" class="input input-bordered input-md input-primary text-center font-bold max-w-14" />
+    <input 
+      v-model="page" 
+      @focus="($event.target as HTMLInputElement).select()" 
+      type="text" 
+      class="input input-bordered input-md input-primary text-center font-bold max-w-14" 
+    />
     <div class="font-bold mx-2">/ {{ maxPage }}</div>
-    <button v-if="!isLastPage" class="btn btn-sm" @click="page++" :disabled="isLastPage"><IconNext /></button>
+    <button v-if="!pageInfo?.isLastPage" class="btn btn-sm" @click="page++">
+      <IconNext />
+    </button>
   </div>
 </template>

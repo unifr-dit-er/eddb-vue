@@ -1,31 +1,31 @@
 import type { ItemConfig } from "../index";
 import { DISPLAY_TABLE, DISPLAY_DETAILS } from "../index";
-import { INFORMATION_TYPE_TEXT, INFORMATION_TYPE_HTML } from "../../types/item";
+import { INFORMATION_TYPE_TEXT } from "../../types/item";
 
 export const itemConfig: ItemConfig = {
   title: {
-    apiCriteria: "identifier",
+    apiCriteria: "NumeroInventaire",
   },
   subtitle: {
-    apiCriteria: "entity",
+    apiCriteria: "Entite",
   },
   dates: {
-    apiCriteriaFrom: "date_num_from",
-    apiCriteriaTo: "date_num_to",
+    apiCriteriaFrom: "DatationDebut",
+    apiCriteriaTo: "DatationFin",
     separator: "–",
     bceLabel: "av. J.-C.",
     ceLabel: "apr. J.-C.",
   },
   images: [
     {
-      title: "Avers",
-      apiCriteria: "image_obverse",
-      apiCriteriaCaption: "description_obverse",
+      title: "Droit",
+      apiCriteria: "Droit",
+      apiCriteriaCaption: "DescriptionDroit",
     },
     {
       title: "Revers",
-      apiCriteria: "image_reverse",
-      apiCriteriaCaption: "description_reverse",
+      apiCriteria: "Revers",
+      apiCriteriaCaption: "DescriptionRevers",
     },
   ],
   informations: [
@@ -33,43 +33,43 @@ export const itemConfig: ItemConfig = {
       {
         type: INFORMATION_TYPE_TEXT,
         title: "Entité",
-        apiCriteria: "entity",
+        apiCriteria: "Entite",
         display: [DISPLAY_DETAILS],
       },
       {
         type: INFORMATION_TYPE_TEXT,
         title: "Autorité émettrice",
-        apiCriteria: "authority",
+        apiCriteria: "Autorite",
         display: [DISPLAY_DETAILS, DISPLAY_TABLE],
       },
       {
         type: INFORMATION_TYPE_TEXT,
         title: "Portrait",
-        apiCriteria: "portrait",
+        apiCriteria: "Portrait",
         display: [DISPLAY_DETAILS, DISPLAY_TABLE],
       },
       {
         type: INFORMATION_TYPE_TEXT,
         title: "Atelier",
-        apiCriteria: "mint",
+        apiCriteria: "Atelier",
         display: [DISPLAY_DETAILS, DISPLAY_TABLE],
       },
       {
         type: INFORMATION_TYPE_TEXT,
         title: "Métal",
-        apiCriteria: "material",
+        apiCriteria: "Metal",
         display: [DISPLAY_DETAILS, DISPLAY_TABLE],
       },
       {
         type: INFORMATION_TYPE_TEXT,
         title: "Dénomination",
-        apiCriteria: "denomination",
+        apiCriteria: "Denomination",
         display: [DISPLAY_DETAILS, DISPLAY_TABLE],
       },
       {
         type: INFORMATION_TYPE_TEXT,
         title: "Poids",
-        apiCriteria: "weight",
+        apiCriteria: "Poids",
         display: [DISPLAY_DETAILS],
         suffix: 'g',
         showEmpty: true,
@@ -77,7 +77,7 @@ export const itemConfig: ItemConfig = {
       {
         type: INFORMATION_TYPE_TEXT,
         title: "Diamètre",
-        apiCriteria: "diameter",
+        apiCriteria: "Diametre",
         display: [DISPLAY_DETAILS],
         suffix: 'mm',
         showEmpty: true,
@@ -85,7 +85,7 @@ export const itemConfig: ItemConfig = {
       {
         type: INFORMATION_TYPE_TEXT,
         title: "Axe",
-        apiCriteria: "axis",
+        apiCriteria: "Axe",
         display: [DISPLAY_DETAILS],
         suffix: '°',
         showEmpty: true,
@@ -93,22 +93,22 @@ export const itemConfig: ItemConfig = {
     ],
     [
       {
-        type: INFORMATION_TYPE_HTML,
+        type: INFORMATION_TYPE_TEXT,
         title: "Commentaire",
-        apiCriteria: ["comment", "date_explanation"],
+        apiCriteria: ["Commentaire", "DatationExplication"],
         display: [DISPLAY_DETAILS],
       },
       {
-        type: INFORMATION_TYPE_HTML,
+        type: INFORMATION_TYPE_TEXT,
         title: "Référence",
-        apiCriteria: "reference",
+        apiCriteria: "Reference",
         display: [DISPLAY_DETAILS],
         showEmpty: true,
       },
       {
-        type: INFORMATION_TYPE_HTML,
+        type: INFORMATION_TYPE_TEXT,
         title: "Bibliographie",
-        apiCriteria: "bibliography",
+        apiCriteria: "Bibliographie",
         display: [DISPLAY_DETAILS],
       }
     ]

@@ -12,14 +12,15 @@ const { data: item, error, pending } = await useFetch<Item>(`api/${provider}/${i
 
 const files = computed<File[]>(() => {
   const filesList: File[] = [
-  { type: FILE_TYPE_PDF, title: item.value?.title || '' }
+    { type: FILE_TYPE_PDF, title: item.value?.title || '' }
   ]
   
   if (item.value?.images) {
     const imageFiles: File[] = item.value.images.map(image => ({
       type: FILE_TYPE_IMG,
       title: image.title || image.id,
-      link: directusThumbnail(image.id)
+      downloadName: `${item.value?.title || 'image'} - ${image.title || image.id}`,
+      link: nocoThumbnail(image.id)
     }))
     filesList.push(...imageFiles)
   }
@@ -31,7 +32,7 @@ const files = computed<File[]>(() => {
 <template>
   <VLoader v-if="pending" />
   <VError v-else-if="error" :code="error.statusCode" :message="error.statusMessage" />
-  <div v-else-if="item" class="min-h-screen mx-auto max-w-5xl print:max-w-none">
+  <div v-else-if="item" class="min-h-screen mx-auto max-w-6xl print:max-w-none">
     <VBreadcrumbs :title="`ID#${item.id}`" :parent="{ title: 'Collection', path: '/collection'}" />
     <div class="bg-base-100 shadow-xl rounded-xl p-10 print:p-2 print:shadow-none m-2 mb-24">
       <div role="alert" class="alert mb-6 hidden print:grid">

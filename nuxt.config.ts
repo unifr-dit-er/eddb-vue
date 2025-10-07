@@ -1,8 +1,8 @@
-import config from "./config/eddb/app"
-const baseURL = "/"
+// import config from "./config/eddb/app"
+// const baseURL = "/"
 
-// import config from "./config/nafo/app"
-// const baseURL = "/nafo/"
+import config from "./config/nafo/app"
+const baseURL = "/nafo/"
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   },
 
   imports: {
-    dirs: ["utils/directus"],
+    dirs: ["utils/directus", "utils/nocodb"],
   },
 
   modules: ["@nuxtjs/tailwindcss", "@nuxt/content", "@nuxt/image", "@nuxt/icon"],

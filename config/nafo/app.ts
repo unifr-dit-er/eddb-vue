@@ -9,10 +9,11 @@ export default {
   sorters,
   filters,
   api: {
-    provider: "directus",
-    url: "https://eddb.unifr.ch/nafo-admin",
-    collectionName: "coins",
-    limit: 50
+    provider: "nocodb",
+    url: "https://eddb.unifr.ch/noco",
+    collectionName: "mxqtfvyud6xj5f4",
+    limit: 50,
+    token: "RVRaYpnATFe0bxbvIfpRKBU0pXBeFyd0XZNfRFR7" // read-only token
   },
   itemConfig
 } as AppConfig
