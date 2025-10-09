@@ -26,7 +26,7 @@ const filtersTextRule = (criteria: string, value: string) => {
 }
 
 const filtersSelectRule = (criteria: string, values: string[]) => {
-  return values.length ? `(${criteria},anyof,${values.join(',')})` : ''
+  return values.length ? `(${criteria},anyof,${values.map(v => `"${v}"`).join(',')})` : ''
 }
 
 const filtersRangeRule = (criteria: string[], values: string[]) => {
@@ -47,5 +47,5 @@ const filtersRangeRule = (criteria: string[], values: string[]) => {
   const range2 = `(${criteria[1]},ge,${from})~and(${criteria[1]},le,${to})`
   
   // Le OR global englobe les deux ranges complets
-  return `(${range1})~or(${range2})`
+  return `((${range1})~or(${range2}))`
 }

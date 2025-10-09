@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
   const options = {
     method: 'GET',
     url: `${api.url}/api/v2/tables/${api.collectionName}/records`,
-    params: { sort: sort, offset: offset || 0, limit: limit, where: nocoFilter(filters) },
+    params: { sort: sort, offset: offset || 0, limit: limit, where: `@${nocoFilter(filters)}` },
     headers: { 'xc-token': `${api.token}` }
   }
 
