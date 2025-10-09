@@ -21,8 +21,6 @@ export default defineEventHandler(async (event) => {
     headers: { 'xc-token': `${api.token}` }
   }
 
-  console.log(options)
-
   try {
     const res = await axios.request(options)
     const items: Item[] = res.data.list?.map((item: any) => nocoTransform(item, itemConfig as ItemConfig, DISPLAY_TABLE)) || []
