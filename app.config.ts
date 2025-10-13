@@ -1,4 +1,3 @@
-// import config from "./config/eddb/app"
 import config from "./config/nafo/app"
 
 export default defineAppConfig({

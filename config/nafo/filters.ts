@@ -54,6 +54,6 @@ export const filters: Filter[] = [
     type: FILTER_TYPE_TEXT,
     title: "Mots-clés",
     info: "ex: sanctuaire",
-    apiCriteria: "Commentaire"
+    apiCriteria: ["MotsCles"]
   }
 ]

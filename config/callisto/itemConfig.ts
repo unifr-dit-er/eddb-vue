@@ -4,15 +4,15 @@ import { INFORMATION_TYPE_TEXT, INFORMATION_TYPE_HTML } from "../../types/item";
 
 export const itemConfig: ItemConfig = {
   title: {
-    apiCriteria: "title",
+    apiCriteria: "Titre",
   },
   subtitle: {
-    apiCriteria: "id",
+    apiCriteria: "Id",
     prefix: "Fiche N°",
   },
   dates: {
-    apiCriteriaFrom: "date_from",
-    apiCriteriaTo: "date_to",
+    apiCriteriaFrom: "DatationDebut",
+    apiCriteriaTo: "DatationFin",
     separator: "–",
     bceLabel: "av. J.-C.",
     ceLabel: "apr. J.-C.",
@@ -21,9 +21,9 @@ export const itemConfig: ItemConfig = {
   informations: [
     [
       {
-        type: INFORMATION_TYPE_HTML,
+        type: INFORMATION_TYPE_TEXT,
         title: "Description",
-        apiCriteria: "description",
+        apiCriteria: "Description",
         display: [DISPLAY_DETAILS],
       },
     ],
@@ -31,63 +31,69 @@ export const itemConfig: ItemConfig = {
       {
         type: INFORMATION_TYPE_TEXT,
         title: "Période",
-        apiCriteria: "period",
+        apiCriteria: "Periode",
         display: [DISPLAY_TABLE, DISPLAY_DETAILS],
       },
       {
         type: INFORMATION_TYPE_TEXT,
         title: "Matériau",
-        apiCriteria: "material",
+        apiCriteria: "Materiau",
         display: [DISPLAY_TABLE, DISPLAY_DETAILS],
       },
       {
         type: INFORMATION_TYPE_TEXT,
         title: "Catégorie",
-        apiCriteria: "category",
+        apiCriteria: "Categorie",
         display: [DISPLAY_TABLE, DISPLAY_DETAILS],
       },
       {
         type: INFORMATION_TYPE_TEXT,
         title: "Forme",
-        apiCriteria: "shape",
+        apiCriteria: "Forme",
+        display: [DISPLAY_TABLE, DISPLAY_DETAILS],
+      },
+      {
+        type: INFORMATION_TYPE_TEXT,
+        title: "Sujets",
+        apiCriteria: "Sujets",
         display: [DISPLAY_TABLE, DISPLAY_DETAILS],
       },
       {
         type: INFORMATION_TYPE_TEXT,
         title: "Dimensions",
-        apiCriteria: "dimensions",
-        display: [DISPLAY_DETAILS],
+        apiCriteria: "Dimensions",
+        display: [DISPLAY_TABLE, DISPLAY_DETAILS],
       },
       {
         type: INFORMATION_TYPE_TEXT,
         title: "Lieu de découverte",
-        apiCriteria: "place_of_discovery",
+        apiCriteria: "LieuDeDecouverte",
         display: [DISPLAY_DETAILS],
       },
       {
         type: INFORMATION_TYPE_TEXT,
         title: "Lieu de conservation",
-        apiCriteria: "place_of_storage",
+        apiCriteria: "LieuDeConservation",
         display: [DISPLAY_DETAILS],
       },
       {
         type: INFORMATION_TYPE_TEXT,
         title: "Centre producteur",
-        apiCriteria: "mint",
+        apiCriteria: "CentreProducteur",
         display: [DISPLAY_DETAILS],
       },
     ],
     [
       {
-        type: INFORMATION_TYPE_HTML,
+        type: INFORMATION_TYPE_TEXT,
         title: "Sources",
-        apiCriteria: "sources",
+        apiCriteria: "Sources",
         display: [DISPLAY_DETAILS],
       },
       {
-        type: INFORMATION_TYPE_HTML,
+        type: INFORMATION_TYPE_TEXT,
         title: "Bibliographie",
-        apiCriteria: "bibliography",
+        apiCriteria: "Bibliographie",
         display: [DISPLAY_DETAILS],
       },
     ],

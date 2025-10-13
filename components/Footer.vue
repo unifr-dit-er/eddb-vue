@@ -22,13 +22,6 @@ const { data: projects } = await useAsyncData('projects', () => queryContent('/'
       </p>
     </aside>
     <nav>
-      <div class="my-2 mb-6">
-        <h6 class="footer-title flex items-center gap-2"><IconCopyright /> Copyright</h6>
-        <p v-if="project?.copyright" class="text-sm"> {{ project.copyright }}</p>
-        <p v-else class="text-sm">
-          Université de Fribourg
-        </p>
-      </div>
       <div class="my-2">
         <h6 class="footer-title">Tous les projets EDDB</h6>
         <div class="grid lg:grid-flow-col lg:gap-6">

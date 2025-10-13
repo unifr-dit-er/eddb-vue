@@ -1,12 +1,9 @@
 <script setup lang="ts">
+
 defineProps<{
   title: string
   content: string
 }>()
-
-const parseMarkdownLinks = (text: string) => {
-  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" rel="noopener noreferrer">$1</a>')
-}
 </script>
 
 <template>
@@ -15,7 +12,7 @@ const parseMarkdownLinks = (text: string) => {
       {{ title }}
     </div>
     <div class="flex-1 md:p-4 print:p-4">
-      <div class="whitespace-pre-line leading-tight" v-html="parseMarkdownLinks(content)"></div>
+      <div v-html="$mdRenderer.render(content)"></div>
     </div>
   </div>
 </template>

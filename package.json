@@ -24,6 +24,7 @@
   "dependencies": {
     "@directus/sdk": "^17.0",
     "axios": "^1.12.2",
+    "markdown-it": "^14.1.0",
     "vue-photo-zoom-pro": "^3.0"
   }
 }

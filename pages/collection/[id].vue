@@ -6,7 +6,7 @@ import { FILE_TYPE_PDF, FILE_TYPE_IMG } from '@/types/file'
 const { name } = useAppConfig()
 const { id } = useRoute().params
 const { provider } = useRuntimeConfig().public.api
-const { data: project } = await useAsyncData('project', () => queryContent(name).where({ '_id': { $contains: 'about.md' } }).only(['_id', 'title', 'copyright']).findOne())
+const { data: project } = await useAsyncData('project', () => queryContent(name).only(['id','copyright']).findOne())
 
 const { data: item, error, pending } = await useFetch<Item>(`api/${provider}/${id}`)
 
@@ -64,7 +64,7 @@ const files = computed<File[]>(() => {
       </div>
       <div v-if="project" class="alert mt-8 mb-2">
         <IconCopyright />
-        <span>{{ project.copyright }}</span>
+        <span>Université de Fribourg, Faculté des lettres et des sciences humaines, Département d’histoire / Musée d’art et d’histoire de Fribourg</span>
       </div>
     </div>
   </div>

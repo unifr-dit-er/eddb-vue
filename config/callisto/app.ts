@@ -5,13 +5,15 @@ import { itemConfig } from './itemConfig'
 
 export default {
   name: "callisto",
+  copyright: "Université de Fribourg, Faculté des lettres et des sciences humaines, Département d’histoire",
   sorters,
   filters,
   api: {
-    provider: "directus",
-    url: "https://eddb.unifr.ch/callisto-admin",
-    collectionName: "collection",
-    limit: 50
+    provider: "nocodb",
+    url: "https://eddb.unifr.ch/noco",
+    collectionName: "mzl90y8p2067uzf",
+    limit: 50,
+    token: "RVRaYpnATFe0bxbvIfpRKBU0pXBeFyd0XZNfRFR7" // read-only token
   },
   itemConfig
 } as AppConfig

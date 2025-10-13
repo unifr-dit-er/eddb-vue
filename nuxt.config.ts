@@ -1,6 +1,3 @@
-// import config from "./config/eddb/app"
-// const baseURL = "/"
-
 import config from "./config/nafo/app"
 const baseURL = "/nafo/"
 
@@ -18,7 +15,7 @@ export default defineNuxtConfig({
 
   modules: ["@nuxtjs/tailwindcss", "@nuxt/content", "@nuxt/image", "@nuxt/icon"],
 
-  plugins: ["~/plugins/vue-photo-zoom-pro.js"],
+  plugins: ["~/plugins/vue-photo-zoom-pro.js", "~/plugins/markdown-it.js"],
 
   runtimeConfig: {
     public: {

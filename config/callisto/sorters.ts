@@ -3,13 +3,18 @@ import { SORTER_TYPE_LETTERS, SORTER_TYPE_NUMBERS } from "../../types/sorter"
 
 export const sorters: Sorter[] = [
   {
+    type: SORTER_TYPE_NUMBERS,
+    title: "N°",
+    apiCriteria: "Id"
+  },
+  {
     type: SORTER_TYPE_LETTERS,
     title: "Titre",
-    apiCriteria: "title"
+    apiCriteria: "Titre"
   },
   {
     type: SORTER_TYPE_NUMBERS,
-    title: "ID",
-    apiCriteria: "id"
+    title: "Date",
+    apiCriteria: "DatationDebut"
   }
 ]
