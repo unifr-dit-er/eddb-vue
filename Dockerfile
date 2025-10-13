@@ -4,6 +4,9 @@ WORKDIR /usr/src/app
 COPY package.json /usr/src/app/package.json
 COPY package-lock.json /usr/src/app/package-lock.json
 
+# fixes potential issues with cached node_modules
+RUN rm -rf node_modules package-lock.json 
+
 RUN npm install --silent
 COPY . /usr/src/app
 RUN npm run build
