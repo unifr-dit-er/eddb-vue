@@ -3,12 +3,14 @@ defineProps<{
   code?: number
   message?: string
 }>()
+
+const { baseURL } = useRuntimeConfig().public
 </script>
 
 <template>
   <div class="hero min-h-screen">
     <div class="hero-content flex-col lg:flex-row">
-      <img src="/img/error.png" class="max-w-sm rounded-lg shadow-2xl mr-4" />
+      <img :src="`${ baseURL }img/error.png`" class="max-w-sm rounded-lg shadow-2xl mr-4" />
       <div>
         <h1 class="text-5xl font-bold">Database error</h1>
         <div class="py-4">

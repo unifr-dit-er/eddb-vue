@@ -8,7 +8,7 @@ const { baseURL } = useRuntimeConfig().public
     <div class="flex justify-center min-h-screen bg-base-300 py-24">
       <div class="max-w-7xl px-4">
         <div class="mb-16 text-center">
-          <img v-if="doc.image" :src="`${ baseURL }/img/${ doc.image }`" class="max-w-xs rounded-lg mb-8 lg:shadow-lg mx-auto" />
+          <img v-if="doc.image" :src="`${ baseURL }img/${ doc.image }`" class="max-w-xs rounded-lg mb-8 lg:shadow-lg mx-auto" />
           <h1 v-if="doc.title" class="text-5xl font-bold align-center">{{ doc.title }}</h1>
           <h2 v-if="doc.subtitle" class="text-2xl font-bold opacity-70">{{ doc.subtitle }}</h2>
         </div>
