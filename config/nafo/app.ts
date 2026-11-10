@@ -10,7 +10,7 @@ export default {
   filters,
   api: {
     provider: "nocodb",
-    url: "https://eddb.unifr.ch/noco",
+    url: "https://eddb-app.unifr.ch",
     collectionName: "mxqtfvyud6xj5f4",
     limit: 50,
     token: "RVRaYpnATFe0bxbvIfpRKBU0pXBeFyd0XZNfRFR7" // read-only token
