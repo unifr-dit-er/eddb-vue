@@ -22,7 +22,7 @@ export default defineEventHandler(async (event) => {
           fields: field,
           limit,
           offset,
-          where: '(Publication,is,true)'
+          where: '(Publication,eq,true)'
         },
         headers: { 'xc-token': `${api.token}` }
       }

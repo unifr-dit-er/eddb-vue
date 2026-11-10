@@ -18,7 +18,7 @@ export const nocoFilter = (filters: string[]): string => {
     })
     .filter(rule => rule !== '')
 
-  return rules.length > 0 ? `(${rules.join('~and')})~and(Publication,is,true)` : '(Publication,is,true)'
+  return rules.length > 0 ? `(${rules.join('~and')})~and(Publication,eq,true)` : '(Publication,eq,true)'
 }
 
 const filtersTextRule = (criteria: string, value: string) => {

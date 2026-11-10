@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
   const options = {
     method: 'GET',
     url: `${api.url}/api/v2/tables/${api.collectionName}/records`,
-    params: { fields: "Id", where: '(Publication,is,true)' },
+    params: { fields: "Id", where: '(Publication,eq,true)' },
     headers: { 'xc-token': `${api.token}` }
   }
 
